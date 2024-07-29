@@ -2,18 +2,18 @@ version: 2.1
 orbs:
   ruby: circleci/ruby@2.1.0
 executors:
-  allsearch-executor:
+  playlist-executor:
     docker:
       - image: cimg/ruby:3.3.0-browsers
         environment:
           RAILS_ENV: test
-          ALLSEARCH_HOST: localhost
-          AllSEARCH_USER: postgres
+          PLAYLIST_HOST: localhost
+          PLAYLIST_USER: postgres
           COVERALLS_PARALLEL: true
       - image: cimg/postgres:15.4
         environment:
-          POSTGRES_USER: allsearch
-          POSTGRES_PASSWORD: allsearch
+          POSTGRES_USER: playlist
+          POSTGRES_PASSWORD: playlist
           POSTGRES_DB: playlist_app_test
     working_directory: ~/rails-checkpoint-winsice
 commands:
