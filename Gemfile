@@ -34,6 +34,8 @@ gem "bootsnap", require: false
 group :test do
   gem 'axe-core-api'
   gem 'axe-core-rspec'
+  gem 'reek'
+  gem 'brakeman'
 end
 
 group :development, :test do
