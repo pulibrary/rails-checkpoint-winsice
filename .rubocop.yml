@@ -1,0 +1,27 @@
+require: 
+  - rubocop-rails
+  - rubocop-rspec
+  - rubocop-rspec_rails
+
+AllCops:
+  NewCops: enable
+  Exclude:
+    - 'bin/**/*'
+    - 'db/**/*'
+    - 'vendor/bundle/**/*'
+
+Naming/RescuedExceptionsVariableName:
+  PreferredName: error
+
+RSpec/ExampleLength:
+  Enabled: false
+
+RSpec/MultipleExpectations:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/SymbolArray:
+  EnforcedStyle: brackets
+  MinSize: 8
