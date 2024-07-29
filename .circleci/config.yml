@@ -1,0 +1,110 @@
+version: 2.1
+orbs:
+  ruby: circleci/ruby@2.1.0
+executors:
+  allsearch-executor:
+    docker:
+      - image: cimg/ruby:3.3.0-browsers
+        environment:
+          RAILS_ENV: test
+          ALLSEARCH_HOST: localhost
+          AllSEARCH_USER: postgres
+          COVERALLS_PARALLEL: true
+      - image: cimg/postgres:15.4
+        environment:
+          POSTGRES_USER: allsearch
+          POSTGRES_PASSWORD: allsearch
+          POSTGRES_DB: playlist_app_test
+    working_directory: ~/rails-checkpoint-winsice
+commands:
+  setup-bundler:
+    steps:
+      - run:
+          name: Install bundler
+          command: gem install bundler -v '2.4.19'
+      # Restore bundle cache
+      - restore_cache:
+          keys:
+          - playlist-v1-{{ checksum "Gemfile.lock" }}
+      # Bundle install dependencies
+      - run:
+          name: Install dependencies
+          command: bundle check --path=vendor/bundle || bundle install --path=vendor/bundle --jobs 4 --retry 3
+      - save_cache:
+          key: playlist-v1-{{ checksum "Gemfile.lock" }}
+          paths:
+            - ./vendor/bundle
+jobs:
+  build:
+    docker:
+      - image: cimg/ruby:3.3
+    steps:
+      - checkout
+      - ruby/install-deps
+  checking:
+    docker: 
+      - image: cimg/ruby:3.3
+    steps:
+      - checkout
+      - ruby/install-deps
+      - ruby/rubocop-check:
+          format: progress
+          label: Inspecting with Rubocop
+  reek:
+    docker:
+      - image: cimg/ruby:3.3
+    steps:
+      - checkout
+      - ruby/install-deps
+      - run:
+          name: Check code smells with Reek
+          command: bundle exec reek app
+  test:
+    executor: playlist-executor
+    parallelism: 3
+    steps:
+      - attach_workspace:
+          at: '~/rails-checkpoint-winsice'
+      - checkout
+      - setup-bundler
+      - run: ruby --version
+      - run: sudo apt install postgresql-client
+      - run:
+          name: Wait for DB
+          command: dockerize -wait tcp://localhost:5432 -timeout 1m
+      - run:
+          name: Database setup
+          command: bundle exec rake db:setup
+      - ruby/install-deps
+      - ruby/rspec-test:
+          include: spec/**/*_spec.rb
+  semgrep:
+    docker:
+        - image: returntocorp/semgrep
+    steps:
+      - checkout
+      - run:
+          name: Check code against community-provided and custom semgrep rules
+          command: semgrep ci --config auto --config .semgrep.yml
+  brakeman:
+    executor: playlist-executor
+    steps:
+      - attach_workspace:
+          at: '~/rails-checkpoint-winsice'
+      - checkout
+      - setup-bundler
+      - run: 
+          name: Check code for vulnerabilities
+          command: bundle exec brakeman
+
+workflows:
+  build_and_test:
+    jobs:
+      - build
+      - checking
+      - reek
+      - brakeman
+      - test:
+          requires:
+            - build
+      - semgrep

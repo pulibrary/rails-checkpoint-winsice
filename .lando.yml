@@ -1,0 +1,5 @@
+name: rails-checkpoint-winsice
+services:
+  database:
+    type: postgres:15
+    portforward: true
