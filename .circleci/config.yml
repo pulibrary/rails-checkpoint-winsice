@@ -4,7 +4,7 @@ orbs:
 executors:
   playlist-executor:
     docker:
-      - image: cimg/ruby:3.3.4-browsers
+      - image: cimg/ruby:3.3.0-browsers
         environment:
           RAILS_ENV: test
           PLAYLIST_HOST: localhost
