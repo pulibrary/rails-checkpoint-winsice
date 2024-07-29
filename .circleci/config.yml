@@ -37,13 +37,13 @@ commands:
 jobs:
   build:
     docker:
-      - image: cimg/ruby:3.3
+      - image: cimg/ruby:3.3.0
     steps:
       - checkout
       - ruby/install-deps
   checking:
     docker: 
-      - image: cimg/ruby:3.3
+      - image: cimg/ruby:3.3.0
     steps:
       - checkout
       - ruby/install-deps
@@ -52,7 +52,7 @@ jobs:
           label: Inspecting with Rubocop
   reek:
     docker:
-      - image: cimg/ruby:3.3
+      - image: cimg/ruby:3.3.0
     steps:
       - checkout
       - ruby/install-deps
