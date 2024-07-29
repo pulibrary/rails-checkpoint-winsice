@@ -14,7 +14,7 @@ executors:
         environment:
           POSTGRES_USER: playlist
           POSTGRES_PASSWORD: playlist
-          POSTGRES_DB: playlist_app_test
+          POSTGRES_DB: playlist_test
     working_directory: ~/rails-checkpoint-winsice
 commands:
   setup-bundler:
