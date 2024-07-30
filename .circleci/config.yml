@@ -10,10 +10,10 @@ executors:
           PLAYLIST_HOST: localhost
           PLAYLIST_USER: postgres
           COVERALLS_PARALLEL: true
+          lando_database_creds_user: playlist
+          lando_database_creds_password: playlist
       - image: cimg/postgres:15.4
         environment:
-          lando_database_creds_user: playlist
-          # lando_database_creds_password: playlist
           POSTGRES_USER: playlist
           POSTGRES_PASSWORD: playlist
           POSTGRES_DB: playlist_test
