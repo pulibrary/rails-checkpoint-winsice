@@ -13,7 +13,7 @@ executors:
       - image: cimg/postgres:15.4
         environment:
           lando_database_creds_user: playlist
-          lando_database_creds_password: playlist
+          # lando_database_creds_password: playlist
           POSTGRES_USER: playlist
           POSTGRES_PASSWORD: playlist
           POSTGRES_DB: playlist_test
