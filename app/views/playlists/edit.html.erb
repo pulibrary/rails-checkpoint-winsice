@@ -1,0 +1,33 @@
+<h1>Editing playlist</h1>
+
+<%= form_with url: "/playlists/:id/edit", method: :post do |form| %>
+  <div>
+    <%= form.label :song_name, style: "display: block" %>
+    <%= form.text_area :song_name %>
+  </div>
+
+  <div>
+    <%= form.label :artist, style: "display: block" %>
+    <%= form.text_area :artist %>
+  </div>
+
+  <div>
+    <%= form.submit "Add Songs"%>
+  </div>
+<% end %>
+
+<%= form_with model: @playlist do |form| %>
+  <div>
+    <%= form.label :playlist_name, style: "display: block" %>
+    <%= form.text_area :playlist_name, :value => @theplaylist.playlist_name  %>
+  </div>
+
+  <div>
+    <%= form.label :playlist_link, style: "display: block" %>
+    <%= form.text_area :playlist_link, :value => @theplaylist.playlist_link %>
+  </div>
+
+  <div>
+    <%= form.submit "Publish Changes"%>
+  </div>
+<% end %>

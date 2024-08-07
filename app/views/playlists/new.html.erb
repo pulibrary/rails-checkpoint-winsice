@@ -1,0 +1,18 @@
+<h1>Sharerify</h1>
+
+<%= form_with url: "/playlists/new", method: :post do |form| %>
+
+  <div>
+    <%= form.label :playlist_name, style: "display: block" %>
+    <%= form.text_area :playlist_name %>
+  </div>
+
+  <div>
+    <%= form.label :playlist_link, style: "display: block" %>
+    <%= form.text_area :playlist_link %>
+  </div>
+
+  <div>
+    <%= form.submit "Create Playlist"%>
+  </div>
+<% end %>

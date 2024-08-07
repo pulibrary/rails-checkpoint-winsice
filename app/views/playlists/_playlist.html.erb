@@ -1,0 +1,19 @@
+<div id="<%= dom_id playlist %>">
+  <td>
+    <%= playlist.id %>
+    <%= playlist.username %>
+    
+  </td>
+
+  <td>
+  <a href="/playlists/<%= playlist.id %>/info"> <%= playlist.playlist_name %> </a>
+  </td>
+
+  <td>
+    <%= playlist.category %>
+  </td>
+
+  <td>
+    <%= playlist.amount_of_listens %>
+  </td>
+</div>
