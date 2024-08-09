@@ -1,0 +1,21 @@
+<h1>LOGIN PAGE</h1>
+
+<%= form_with url: '/login', method: :post do |form| %>
+  <div>
+    <%= form.label :username, style: "display: block" %>
+    <%= form.text_area :username %>
+  </div>
+
+  <div>
+    <%= form.label :password, style: "display: block" %>
+    <%= form.text_area :password %>
+  </div>
+
+  <% if flash[:notice] %>
+    <%= flash[:notice] %>
+  <% end %>
+
+  <div>
+    <%= form.submit "Login"%>
+  </div>
+<% end %>

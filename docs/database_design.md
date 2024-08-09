@@ -12,7 +12,7 @@ password: text - hashed for security purposes
 This will hold information about each playlist, including who made it, the name, category it fits under, a link to the playlist that will redirect you to the music streaming service, and amount of listens it receives. 
 
 playlist_id: int \
-username: text \
+account_id: int \
 playlist_name: text \
 category: text \
 playlist_link: text \

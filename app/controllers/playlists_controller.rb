@@ -45,6 +45,14 @@ class PlaylistsController < ApplicationController
     @theplaylist = Playlist.find(params[:id])
   end
  
+  def add_song
+    @playlist = Playlist.find(params[:id])
+    song_name = params[:song_name]
+    artist = params[:artist]
+    @playlist.song.create(song_name: song_name, artist: artist)
+    redirect_to "/playlists/#{@playlist.id}/edit"
+
+  end 
   # POST /playlists/:id/edit
   def update 
     @playlist = Playlist.find(params[:id])
