@@ -5,17 +5,6 @@ class AccountsController < ApplicationController
   def login
   end
 
-  def authenticate
-    username = params[:username]
-    password = params[:password]
-    valid = Account.exists?(:username => username, :password => password)
-
-    if valid
-      redirect_to '/'
-    end 
-
-  end 
-
   # GET /accounts/1 or /accounts/1.json
   def show
   end
@@ -33,6 +22,7 @@ class AccountsController < ApplicationController
   def create
     @account = Account.new(account_params)
     @account.save
+    session[:account_id] = @account.id
   end
 
   # PATCH/PUT /accounts/1 or /accounts/1.json

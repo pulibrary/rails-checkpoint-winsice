@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get 'sessions/new'
+  get 'sessions/create'
+  get 'sessions/destory'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -31,7 +34,7 @@ Rails.application.routes.draw do
   # ACCOUNT
 
   get '/login', to: 'accounts#login'
-  post '/login', to: 'accounts#authenticate'
+  post '/login', to: 'sessions#create'
 
   # create acc
   get '/createaccount', to: 'accounts#new'

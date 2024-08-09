@@ -1,4 +1,8 @@
 <h1>HOME PAGE</h1>
 
+<% if current_account %>  
+Logged in as <%= current_account.username %>
+<% end %>  
+
 <a href="/playlists/new">Upload</a>
 <a href="/playlists/discover">Discover</a>

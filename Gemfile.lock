@@ -88,7 +88,7 @@ GEM
       ice_nine (~> 0.11.0)
       thread_safe (~> 0.3, >= 0.3.1)
     base64 (0.2.0)
-    bcrypt (3.1.20)
+    
     bigdecimal (3.1.8)
     bindex (0.8.1)
     bootsnap (1.18.3)
@@ -107,12 +107,7 @@ GEM
       reline (>= 0.3.8)
     descendants_tracker (0.0.4)
       thread_safe (~> 0.3, >= 0.3.1)
-    devise (4.9.4)
-      bcrypt (~> 3.0)
-      orm_adapter (~> 0.1)
-      railties (>= 4.1.0)
-      responders
-      warden (~> 1.2.3)
+    
     diff-lcs (1.5.1)
     drb (2.2.1)
     dry-configurable (1.2.0)
@@ -193,7 +188,7 @@ GEM
       racc (~> 1.4)
     nokogiri (1.16.6-x86_64-linux)
       racc (~> 1.4)
-    orm_adapter (0.5.0)
+    
     parallel (1.25.1)
     parser (3.3.4.0)
       ast (~> 2.4.1)
@@ -253,9 +248,7 @@ GEM
     regexp_parser (2.9.2)
     reline (0.5.9)
       io-console (~> 0.5)
-    responders (3.1.1)
-      actionpack (>= 5.2)
-      railties (>= 5.2)
+
     rexml (3.3.2)
       strscan
     rspec-core (3.13.0)
@@ -311,8 +304,7 @@ GEM
       axiom-types (~> 0.1)
       coercible (~> 1.0)
       descendants_tracker (~> 0.0, >= 0.0.3)
-    warden (1.2.9)
-      rack (>= 2.0.9)
+
     web-console (4.2.1)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -338,7 +330,7 @@ DEPENDENCIES
   bootsnap
   brakeman
   debug
-  devise (~> 4.9)
+
   jbuilder
   pg (~> 1.1)
   puma (>= 5.0)

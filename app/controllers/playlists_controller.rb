@@ -25,6 +25,7 @@ class PlaylistsController < ApplicationController
   # POST /playlists/new
   def create
     @playlist = Playlist.new(playlist_params)
+    # @playlist.account_id = session[:current_account]
     @playlist.save
 
     redirect_to "/playlists/#{@playlist.id}/edit"
@@ -102,6 +103,6 @@ class PlaylistsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def playlist_params
-      params.permit(:username, :playlist_name, :category, :playlist_link, :amount_of_listens)
+      params.require(:playlist).permit(:username, :playlist_name, :category, :playlist_link, :amount_of_listens)
     end
 end
