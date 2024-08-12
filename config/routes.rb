@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "playlists#index"
 
-  # PLAYLIST 
+  # PLAYLIST
 
   # discover page
   get '/playlists/discover', to: 'playlists#discover'
@@ -31,16 +31,25 @@ Rails.application.routes.draw do
   # playlist info 
   get '/playlists/:id/info', to: 'playlists#info'
 
+  # my playlists 
+  get '/account', to: 'playlists#account'
+  post '/account', to: 'playlists#acc_search'
+
   # ACCOUNT
 
   get '/login', to: 'accounts#login'
   post '/login', to: 'sessions#create'
+  post 'logout', to: 'sessions#destroy'
 
   # create acc
   get '/createaccount', to: 'accounts#new'
   post '/createaccount', to:'accounts#create'
 
+  # SONGS
+
   # resources :accounts
   # resources :playlists
-  # resources :songs
+  resources :songs
+
+
 end

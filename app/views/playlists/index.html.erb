@@ -1,8 +1,18 @@
 <h1>HOME PAGE</h1>
 
 <% if current_account %>  
-Logged in as <%= current_account.username %>
+  Logged in as <%= current_account.username %>
+<% else %> 
+  Logged out 
 <% end %>  
+
+<%= form_with url: '/logout', method: :post do |form| %>
+  <div>
+    <%= form.submit "Log Out"%>
+  </div>
+<% end %>
+
+
 
 <a href="/playlists/new">Upload</a>
 <a href="/playlists/discover">Discover</a>

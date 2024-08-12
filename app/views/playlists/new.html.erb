@@ -1,6 +1,6 @@
 <h1>Sharerify</h1>
 
-<%= form_with url: "/playlists/new", model: @playlist, method: :post do |form| %>
+<%= form_with model: @playlist, url: "/playlists/new", method: :post do |form| %>
 
   <div>
     <%= form.label :playlist_name, style: "display: block" %>

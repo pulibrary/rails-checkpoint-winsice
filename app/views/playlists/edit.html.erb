@@ -1,6 +1,6 @@
 <h1>Editing playlist</h1>
 
-<%= form_with model: @playlist, url: "/playlists/#{@theplaylist.id}/edit/add", method: :post do |form| %>
+<%= form_with model: @song, url: "/playlists/#{@theplaylist.id}/edit/add", method: :post do |form| %>
 
   <div>
     <%= form.label :song_name, style: "display: block" %>
@@ -17,7 +17,7 @@
   </div>
 <% end %>
 
-<%= form_with model: @playlist do |form| %>
+<%= form_with model: @theplaylist, url: "/playlists/#{@theplaylist.id}/edit", method: :post do |form| %>
   <div>
     <%= form.label :playlist_name, style: "display: block" %>
     <%= form.text_area :playlist_name, :value => @theplaylist.playlist_name  %>

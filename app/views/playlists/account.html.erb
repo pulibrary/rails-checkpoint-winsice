@@ -1,0 +1,45 @@
+<h1>Sharerify</h1>
+
+<div id="searchbox">
+
+  <%= form_with model: @playlist do |f| %>
+
+    <%= f.label "Search by Playlist" %>
+    <%= f.text_field :playlist_name %> <br>
+    <%= f.label "Search by Category" %>
+    <%= f.text_field :category %> <br>
+
+    <!-- <%= f.label "Search by Popularity" %> -->
+    <!-- <%= f.radio_button :amount_of_listens, 100 %> -->
+    <!-- <%= f.label "100+" %> -->
+
+    <%= f.submit "Search" %>
+  <% end %>
+
+</div>
+<hr>
+<div id="results">
+
+  <table>
+    <tr>
+      <td>Username</td>
+      <td>Playlist Name</td>
+      <td>Category</td>
+      <td>Amount of Listens</td>
+    </tr>
+
+    <% @playlists.each do |playlist| %>
+      <tr>
+      <%= render playlist %>
+      </tr>
+    <% end %>
+
+  </table>
+
+<hr>
+
+</div>
+
+<%= link_to "New playlist", '/playlists/new' %>
+
+
