@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
 
   private
 
-    # Returns the Account ID of the user
+    # Returns the Account ID of the authenticated user 
     def current_account
       Account.where(id: session[:account_id]).first
     end

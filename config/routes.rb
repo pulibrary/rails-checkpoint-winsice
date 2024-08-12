@@ -39,7 +39,7 @@ Rails.application.routes.draw do
 
   get '/login', to: 'accounts#login'
   post '/login', to: 'sessions#create'
-  post 'logout', to: 'sessions#destroy'
+  post '/logout', to: 'sessions#destroy'
 
   # create acc
   get '/createaccount', to: 'accounts#new'
