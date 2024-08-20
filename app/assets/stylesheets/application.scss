@@ -115,11 +115,21 @@ input[type='radio'] {
 }
 
 .song-table-head {
-    width: 127%;
+    width: 105%;
     display: table;
 }
 
 .song-table-body {
     width: 100%;
     display: table;
+}
+
+td {
+    width: 50%
+}
+
+
+.notice {
+    color: red;
+    text-align: center;
 }

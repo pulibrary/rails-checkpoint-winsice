@@ -10,6 +10,7 @@
 
       <!-- USERNAME AND PASSWORD -->
       <div class="container widget rounded-5">
+
         <div class="row p-2 ">
           <%= form.label :username, style: "display: block", class: "form-label" %>
           <%= form.text_field :username, {class: "query rounded-5"} %>
@@ -19,10 +20,13 @@
           <%= form.label :password, style: "display: block", class: "form-label" %>
           <%= form.password_field :password, {class: "query rounded-5"} %>
         </div>
+
+        <div class="notice mt-4"><%= notice %></div>
+
       </div>
 
       <!-- BUTTON -->
-      <div class="d-grid mx-auto col-4 p-5">
+      <div class="d-grid mx-auto my-2 col-4 p-4">
         <%= form.submit button_label, {class: "button rounded-5"} %>
       </div>
 

@@ -4,9 +4,13 @@ class SessionsController < ApplicationController
   def create
     credentials = account_params
     account = Account.find_by_username(credentials[:username])
-    if account && account.authenticate(credentials)
-      session[:account_id] = account.id
-      redirect_to '/'
+    respond_to do |format|
+      if account && account.authenticate(credentials)
+        session[:account_id] = account.id
+        format.html { redirect_to '/' }
+      else
+        format.html { redirect_to '/login', notice: "Wrong credentials. Please try again." }
+      end
     end
   end
 
