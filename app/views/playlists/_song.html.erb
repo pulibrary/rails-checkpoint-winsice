@@ -10,8 +10,8 @@
   <tbody class="song-table-body">
     <% @songs.each do |song| %>
       <tr>
-        <td> <%= song.song_name %> </td>
-        <td> <%= song.artist %> </td>
+        <td class="song-td"> <%= song.song_name %> </td>
+        <td class="song-td"> <%= song.artist %> </td>
       </tr>
     <% end %>
   </tbody>
