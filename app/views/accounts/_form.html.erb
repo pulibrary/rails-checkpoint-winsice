@@ -1,27 +1,31 @@
-<%= form_with do |form| %>
-  <% if account.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(account.errors.count, "error") %> prohibited this account from being saved:</h2>
+<!-- LOGO --> 
+<div class="container text-center p-4">
+  <%= image_tag("sharerify.png", :alt => "Sharerify", class: "logo-large") %>
+</div>
 
-      <ul>
-        <% account.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
+<!-- FORM --> 
+<div class="container col-7">
+
+  <%= form_with model: account, url: post_url, method: :post do |form| %>
+
+      <!-- USERNAME AND PASSWORD -->
+      <div class="container widget rounded-5">
+        <div class="row p-2 ">
+          <%= form.label :username, style: "display: block", class: "form-label" %>
+          <%= form.text_field :username, {class: "query rounded-5"} %>
+        </div>
+
+        <div class="row p-2">
+          <%= form.label :password, style: "display: block", class: "form-label" %>
+          <%= form.password_field :password, {class: "query rounded-5"} %>
+        </div>
+      </div>
+
+      <!-- BUTTON -->
+      <div class="d-grid mx-auto col-4 p-5">
+        <%= form.submit button_label, {class: "button rounded-5"} %>
+      </div>
+
   <% end %>
 
-  <div>
-    <%= form.label :username, style: "display: block" %>
-    <%= form.text_area :username %>
-  </div>
-
-  <div>
-    <%= form.label :password, style: "display: block" %>
-    <%= form.text_area :password %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

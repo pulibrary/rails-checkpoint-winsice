@@ -1,9 +1,1 @@
-<h1>CREATE ACC APGE</h1>
-
-<%= render "form", account: @account %>
-
-<br>
-
-<div>
-  <%= link_to "Back to accounts", '/accounts' %>
-</div>
+<%= render 'form', account: @account, post_url: @post_url, button_label: @button_label %>

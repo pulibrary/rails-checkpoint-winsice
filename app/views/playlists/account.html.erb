@@ -1,45 +1,17 @@
-<h1>Sharerify</h1>
-
-<div id="searchbox">
-
-  <%= form_with model: @playlist do |f| %>
-
-    <%= f.label "Search by Playlist" %>
-    <%= f.text_field :playlist_name %> <br>
-    <%= f.label "Search by Category" %>
-    <%= f.text_field :category %> <br>
-
-    <!-- <%= f.label "Search by Popularity" %> -->
-    <!-- <%= f.radio_button :amount_of_listens, 100 %> -->
-    <!-- <%= f.label "100+" %> -->
-
-    <%= f.submit "Search" %>
-  <% end %>
-
-</div>
-<hr>
-<div id="results">
-
-  <table>
-    <tr>
-      <td>Username</td>
-      <td>Playlist Name</td>
-      <td>Category</td>
-      <td>Amount of Listens</td>
-    </tr>
-
-    <% @playlists.each do |playlist| %>
-      <tr>
-      <%= render playlist %>
-      </tr>
-    <% end %>
-
-  </table>
-
-<hr>
+<div class="container mt-4 mx-5">
+  <div class="row">
+    <div class="col">
+       <a href="/"><%= image_tag("sharerify.png", :alt => "Sharerify", class: "logo-small") %></a>
+    </div>
+    <div class="col d-flex justify-content-end">
+      <% if current_account %>  
+        <div class="montserrat-h2 mt-4">  <%= current_account.username %>'s Playlists </div>
+      <% end %>
+    </div>
+  </div>
 
 </div>
 
-<%= link_to "New playlist", '/playlists/new' %>
-
-
+<div class="container">
+  <%= render 'myquery', playlist: @playlist, post_url: @post_url, playlists: @playlists %>
+</div>

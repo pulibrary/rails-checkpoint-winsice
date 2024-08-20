@@ -3,20 +3,18 @@
   <thead>
     <tr>
       <th scope="col">Playlist Name</th>
-      <th scope="col">Username</th>
       <th scope="col"># of Clicks</th>
       <th scope="col">Category</th>
+      
     </tr>
   </thead>
 
   <tbody>
     <% playlists.each do |playlist| %>
       <tr>
-        <th scope="row"> <a href="/playlists/<%= playlist.id %>/info"> <%= playlist.playlist_name %> </a> </th>
-
-        <td>
-          <%= Account.find(playlist.account_id).username %>
-        </td>
+        <th scope="row">
+           <%= playlist.playlist_name %> 
+        </th>
 
         <td class="text-center"> <%= playlist.amount_of_listens %> </td>
 
@@ -27,7 +25,11 @@
             </div>
           <% end %>
         </td>
-        
+
+        <td> <%= link_to "Edit", "/playlists/#{playlist.id}/edit", {class: "button p-2 rounded-5"} %> </td>
+
+        <td> <%= link_to "Delete", "/playlists/#{playlist.id}/delete", {class: "button p-2 rounded-5"} %> </td>
+
       </tr>
     <% end %>
   </tbody>

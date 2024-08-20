@@ -1,0 +1,7 @@
+<div class="container">
+  <% if current_account %>  
+  <div class="montserrat-h1"> Welcome, <%= current_account.username %> </div>
+  <% end %>  
+</div>
+
+<%= render 'myquery', playlist: @playlist, post_url: @post_url, playlists: @playlists %>

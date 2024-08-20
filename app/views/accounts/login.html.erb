@@ -1,21 +1,5 @@
-<h1>LOGIN PAGE</h1>
+<%= render 'form', account: @account, post_url: @post_url, button_label: @button_label %>
 
-<%= form_with url: '/login', method: :post do |form| %>
-  <div>
-    <%= form.label :username, style: "display: block" %>
-    <%= form.text_area :username %>
-  </div>
-
-  <div>
-    <%= form.label :password, style: "display: block" %>
-    <%= form.text_area :password %>
-  </div>
-
-  <% if flash[:notice] %>
-    <%= flash[:notice] %>
-  <% end %>
-
-  <div>
-    <%= form.submit "Login"%>
-  </div>
-<% end %>
+<div class="container text-center">
+  Don't have an account? <a href='/createaccount'>Sign Up</a>
+</div>

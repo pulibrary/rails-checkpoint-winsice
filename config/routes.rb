@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   get 'sessions/new'
   get 'sessions/create'
   get 'sessions/destory'
+
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -17,7 +19,7 @@ Rails.application.routes.draw do
 
   # discover page
   get '/playlists/discover', to: 'playlists#discover'
-  post '/playlists/discover', to: 'playlists#search'
+  post '/playlists/search', to: 'playlists#search'
 
   # new playlist 
   get '/playlists/new', to: 'playlists#new'
@@ -30,10 +32,14 @@ Rails.application.routes.draw do
 
   # playlist info 
   get '/playlists/:id/info', to: 'playlists#info'
+  post '/add_click/:id', to: 'playlists#add_click'
 
   # my playlists 
   get '/account', to: 'playlists#account'
-  post '/account', to: 'playlists#acc_search'
+  post '/account/search', to: 'playlists#my_search'
+
+  get '/playlists/:id/delete', to: 'playlists#delete'
+  post '/playlists/:id/delete', to: 'playlists#destroy'
 
   # ACCOUNT
 

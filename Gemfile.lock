@@ -76,6 +76,8 @@ GEM
       mutex_m
       tzinfo (~> 2.0)
     ast (2.4.2)
+    autoprefixer-rails (10.4.19.0)
+      execjs (~> 2)
     axe-core-api (4.9.1)
       dumb_delegator
       virtus
@@ -88,11 +90,13 @@ GEM
       ice_nine (~> 0.11.0)
       thread_safe (~> 0.3, >= 0.3.1)
     base64 (0.2.0)
-    
     bigdecimal (3.1.8)
     bindex (0.8.1)
     bootsnap (1.18.3)
       msgpack (~> 1.2)
+    bootstrap (5.3.3)
+      autoprefixer-rails (>= 9.1.0)
+      popper_js (>= 2.11.8, < 3)
     brakeman (6.1.2)
       racc
     builder (3.3.0)
@@ -107,7 +111,6 @@ GEM
       reline (>= 0.3.8)
     descendants_tracker (0.0.4)
       thread_safe (~> 0.3, >= 0.3.1)
-    
     diff-lcs (1.5.1)
     drb (2.2.1)
     dry-configurable (1.2.0)
@@ -139,6 +142,13 @@ GEM
       zeitwerk (~> 2.6)
     dumb_delegator (1.0.0)
     erubi (1.13.0)
+    execjs (2.9.1)
+    ffi (1.17.0-aarch64-linux-gnu)
+    ffi (1.17.0-arm-linux-gnu)
+    ffi (1.17.0-arm64-darwin)
+    ffi (1.17.0-x86-linux-gnu)
+    ffi (1.17.0-x86_64-darwin)
+    ffi (1.17.0-x86_64-linux-gnu)
     globalid (1.2.1)
       activesupport (>= 6.1)
     i18n (1.14.5)
@@ -188,12 +198,12 @@ GEM
       racc (~> 1.4)
     nokogiri (1.16.6-x86_64-linux)
       racc (~> 1.4)
-    
     parallel (1.25.1)
     parser (3.3.4.0)
       ast (~> 2.4.1)
       racc
     pg (1.5.6)
+    popper_js (2.11.8)
     psych (5.1.2)
       stringio
     puma (6.4.2)
@@ -248,7 +258,6 @@ GEM
     regexp_parser (2.9.2)
     reline (0.5.9)
       io-console (~> 0.5)
-
     rexml (3.3.2)
       strscan
     rspec-core (3.13.0)
@@ -292,10 +301,28 @@ GEM
       rubocop (~> 1.61)
       rubocop-rspec (~> 3, >= 3.0.1)
     ruby-progressbar (1.13.0)
+    sass-rails (6.0.0)
+      sassc-rails (~> 2.1, >= 2.1.1)
+    sassc (2.4.0)
+      ffi (~> 1.9)
+    sassc-rails (2.1.2)
+      railties (>= 4.0.0)
+      sassc (>= 2.0)
+      sprockets (> 3.0)
+      sprockets-rails
+      tilt
+    sprockets (4.2.1)
+      concurrent-ruby (~> 1.0)
+      rack (>= 2.2.4, < 4)
+    sprockets-rails (3.5.2)
+      actionpack (>= 6.1)
+      activesupport (>= 6.1)
+      sprockets (>= 3.0.0)
     stringio (3.1.1)
     strscan (3.1.0)
     thor (1.3.1)
     thread_safe (0.3.6)
+    tilt (2.4.0)
     timeout (0.4.1)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
@@ -304,7 +331,6 @@ GEM
       axiom-types (~> 0.1)
       coercible (~> 1.0)
       descendants_tracker (~> 0.0, >= 0.0.3)
-
     web-console (4.2.1)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -328,9 +354,9 @@ DEPENDENCIES
   axe-core-api
   axe-core-rspec
   bootsnap
+  bootstrap (~> 5.3.3)
   brakeman
   debug
-
   jbuilder
   pg (~> 1.1)
   puma (>= 5.0)
@@ -341,6 +367,7 @@ DEPENDENCIES
   rubocop-rails
   rubocop-rspec
   rubocop-rspec_rails
+  sass-rails
   tzinfo-data
   web-console
 

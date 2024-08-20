@@ -1,18 +1,63 @@
-<h1>Sharerify</h1>
-
-<%= form_with model: @playlist, url: "/playlists/new", method: :post do |form| %>
-
-  <div>
-    <%= form.label :playlist_name, style: "display: block" %>
-    <%= form.text_area :playlist_name %>
+<div class="container mt-4 mx-5">
+  <div class="row">
+    <div class="col">
+       <a href="/"><%= image_tag("sharerify.png", :alt => "Sharerify", class: "logo-small") %></a>
+    </div>
+    <div class="col d-flex justify-content-end">
+      <% if current_account %>  
+        <div class="montserrat-h2 mt-4">  <%= current_account.username %>'s New Playlists </div>
+      <% end %>
+    </div>
   </div>
 
-  <div>
-    <%= form.label :playlist_link, style: "display: block" %>
-    <%= form.text_area :playlist_link %>
-  </div>
+</div>
 
-  <div>
-    <%= form.submit "Create Playlist"%>
-  </div>
-<% end %>
+<div class="container">
+
+  <%= form_with model: @playlist, url: "/playlists/new", method: :post do |form| %>
+
+    <div class="container col-11">
+
+      <div class="row">
+
+        <div class="col m-3 widget rounded-5">
+          <%= form.label :playlist_name, "Playlist Name", style: "display: block", class: "form-label" %>
+          <%= form.text_field :playlist_name, {class: "col-12 query rounded-5"} %>
+        </div>
+
+        <div class="col m-3 widget rounded-5">
+          <%= form.label :playlist_link, "Spotify Link", style: "display: block", class: "form-label" %>
+          <%= form.text_field :playlist_link, {class: "col-12 query rounded-5"} %>
+        </div>
+
+      </div>
+
+      <div class="row">
+
+        <div class="col m-3 widget rounded-5">
+            <div class="form-label">Category</div> <br>
+            <%= render 'category', form: form, playlist: @playlist, category: "Alternative" %>
+            <%= render 'category', form: form, playlist: @playlist, category: "Blues" %>
+            <%= render 'category', form: form, playlist: @playlist, category: "Classical" %>
+            <%= render 'category', form: form, playlist: @playlist, category: "Country" %>
+            <%= render 'category', form: form, playlist: @playlist, category: "EDM" %>
+            <%= render 'category', form: form, playlist: @playlist, category: "Hip-Hop" %>
+            <%= render 'category', form: form, playlist: @playlist, category: "Jazz" %>
+            <%= render 'category', form: form, playlist: @playlist, category: "Kpop" %>
+            <%= render 'category', form: form, playlist: @playlist, category: "Latin" %>
+            <%= render 'category', form: form, playlist: @playlist, category: "Pop" %>
+            <%= render 'category', form: form, playlist: @playlist, category: "R&B" %>
+            <%= render 'category', form: form, playlist: @playlist, category: "Rock" %>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="d-grid mx-auto col-3 p-3">
+      <%= form.submit "Create Playlist", {class: "button rounded-5"}%>
+    </div>
+
+  <% end %>
+
+</div>

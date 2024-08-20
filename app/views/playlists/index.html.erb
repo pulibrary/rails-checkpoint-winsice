@@ -1,18 +1,46 @@
-<h1>HOME PAGE</h1>
-
-<% if current_account %>  
-  Logged in as <%= current_account.username %>
-<% else %> 
-  Logged out 
-<% end %>  
-
-<%= form_with url: '/logout', method: :post do |form| %>
-  <div>
-    <%= form.submit "Log Out"%>
+<div class="container m-5">
+  <div class="row">
+    <div class="col">
+       <a href="/"><%= image_tag("sharerify.png", :alt => "Sharerify", class: "logo-small") %></a>
+    </div>
+    <div class="col d-flex justify-content-end">
+      <% if current_account %>  
+        <div class="montserrat-h1 mt-4"> Welcome, <%= current_account.username %> </div>
+      <% end %>
+    </div>
   </div>
-<% end %>
 
+  <div class="row">
+    <div class="col d-flex justify-content-end">
+      <%= form_with url: '/logout', method: :post do |form| %>
+        <%= form.submit "Log Out", {class: "button p-2 px-3 rounded-5"} %>
+      <% end %>
+    </div>
+  </div>
 
+</div>
 
-<a href="/playlists/new">Upload</a>
-<a href="/playlists/discover">Discover</a>
+<div class="container col-6">
+  <div class="montserrat-h2 mb-4 text-center">Upload your playlists, check out your profile, or find new playlists to listen to!</div>
+</div>
+
+<div class="container">
+
+  <div class="row">
+    <div class="col text-center widget rounded-5 m-4">
+      <div class="montserrat-h2 mb-2">Upload</div> <br>
+      <%= link_to "Go →", '/playlists/new', {class: "button p-2 px-5 rounded-5"} %>
+    </div>
+
+    <div class="col text-center widget rounded-5 m-4">
+      <div class="montserrat-h2 mb-2">My Account</div> <br>
+      <%= link_to "Go →", '/account', {class: "button p-2 px-5 rounded-5"} %>
+    </div>
+
+    <div class="col text-center widget rounded-5 m-4">
+      <div class="montserrat-h2 mb-2">Discover</div> <br>
+      <%= link_to "Go →", '/playlists/discover', {class: "button p-2 px-5 rounded-5"} %>
+    </div>
+  </div>
+
+</div>

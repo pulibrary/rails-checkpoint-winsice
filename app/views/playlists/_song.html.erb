@@ -1,0 +1,19 @@
+<table class="table">
+
+  <thead class="montserrat-song song-table-head">
+    <tr>
+      <th scope="col">Song</th>
+      <th scope="col">Artist</th>
+    </tr>
+  </thead>
+
+  <tbody class="song-table-body">
+    <% @songs.each do |song| %>
+      <tr>
+        <th scope="row"> <%= song.song_name %> </th>
+        <td> <%= song.artist %> </td>
+      </tr>
+    <% end %>
+  </tbody>
+
+</table>

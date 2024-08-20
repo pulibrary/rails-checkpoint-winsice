@@ -1,0 +1,58 @@
+<div class="container widget mb-3 rounded-5">
+ 
+  <%= form_with model: playlist, url: post_url, method: :post do |form| %>
+
+    <div class="row mb-3">
+      <div class="col">
+        <%= form.label :playlist_name, "Search By Playlist", style: "display: block", class: "form-label" %>
+        <%= form.text_field :playlist_name, {class: "query col-6 rounded-5"} %> 
+      </div>
+
+      <div class="col">
+      <div class="mb-2">Search by Popularity </div>
+          <%= form.radio_button :amount_of_listens, "0" %>
+          <%= form.label "0+" %>
+          <%= form.radio_button :amount_of_listens, "10" %>
+          <%= form.label "10+" %>
+          <%= form.radio_button :amount_of_listens, "50" %>
+          <%= form.label "50+" %>
+          <%= form.radio_button :amount_of_listens, "100" %>
+          <%= form.label "100+" %>
+          <%= form.radio_button :amount_of_listens, "1000" %>
+          <%= form.label "1000+" %>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col">
+      Search by Category <br>
+      <%= render 'category', form: form, playlist: playlist, category: "Alternative" %>
+      <%= render 'category', form: form, playlist: playlist, category: "Blues" %>
+      <%= render 'category', form: form, playlist: playlist, category: "Classical" %>
+      <%= render 'category', form: form, playlist: playlist, category: "Country" %>
+      <%= render 'category', form: form, playlist: playlist, category: "EDM" %>
+      <%= render 'category', form: form, playlist: playlist, category: "Hip-Hop" %>
+      <%= render 'category', form: form, playlist: playlist, category: "Jazz" %>
+      <%= render 'category', form: form, playlist: playlist, category: "Kpop" %>
+      <%= render 'category', form: form, playlist: playlist, category: "Latin" %>
+      <%= render 'category', form: form, playlist: playlist, category: "Pop" %>
+      <%= render 'category', form: form, playlist: playlist, category: "R&B" %>
+      <%= render 'category', form: form, playlist: playlist, category: "Rock" %>
+      </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col d-flex justify-content-end">
+            <%= form.submit "Search", {class: "button p-2 px-3 rounded-5"} %>
+        </div>
+    </div>
+
+  <% end %>
+
+</div>
+
+<div class="container widget rounded-5">
+    Search Results
+  <%= render 'myplaylist', playlists: playlists %>
+</div>

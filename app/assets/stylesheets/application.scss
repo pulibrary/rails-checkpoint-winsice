@@ -1,0 +1,125 @@
+/* Application styles */
+
+// <uniquifier>: Use a unique and descriptive class name
+// <weight>: Use a value from 100 to 900
+
+.montserrat {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    letter-spacing: 1.5px;
+
+    .montserrat-h1 {
+        font-size: 3em; 
+    }
+
+    .montserrat-h2 {
+        margin-top: 1rem; 
+        font-size: 1.5em; 
+    }
+
+    .montserrat-song {
+        font-size: 1.25em;
+    }
+}
+
+
+body { 
+    background-color: black;
+    color: white;
+}
+
+a {
+    color: #1ED760; 
+}
+
+table {
+    display: block;
+    height: 25vh;
+    overflow-y: auto;
+}
+
+.table {
+    --bs-table-bg: #191414;
+    --bs-table-color: white;
+}
+
+// ELEMENTS
+
+.button {
+    background-color: #1ED760;
+    border: none;
+    font-weight: 600;
+    letter-spacing: 1.5px; 
+    color: black;
+    padding: 1rem;
+    text-decoration: none;
+}
+
+.link {
+    background-color: black;
+    border: none;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    color: #1ED760;
+    text-decoration: underline;
+}
+
+input[type='checkbox'] {
+    accent-color: #1ED760;
+}
+
+input[type='radio'] {
+    accent-color: #1ED760;
+}
+
+.custom-checkbox {
+    border: solid #1ED760;
+    padding: .5rem;
+    padding-right: .75rem;
+    margin: .25rem;
+    font-size: .9em;
+}
+
+.category {
+    border: solid #1ED760;
+    font-size: .9em; 
+    padding: .5rem;
+    margin: .5rem;
+}
+
+.widget {
+    background-color: #191414; 
+    padding: 3rem;
+}
+
+.query {
+    border: solid white; 
+    background: none; 
+    color: white; 
+}
+
+.logo-large {
+    max-width: 400px;
+    max-height: 300px;
+}
+
+.logo-small {
+    max-width: 250px;
+    max-height: 150px;
+}
+
+.hidden {
+    display: none;
+}
+
+.song-table-head {
+    width: 127%;
+    display: table;
+}
+
+.song-table-body {
+    width: 100%;
+    display: table;
+}

@@ -1,34 +1,118 @@
-<h1>Editing playlist</h1>
+<div class="container-fluid m-3">
 
-<%= form_with model: @song, url: "/playlists/#{@theplaylist.id}/edit/add", method: :post do |form| %>
+  <div class="row">
 
-  <div>
-    <%= form.label :song_name, style: "display: block" %>
-    <%= form.text_area :song_name %>
+    <div class="col-5 m-3">
+
+      <%= form_with model: @song, url: "/playlists/#{@playlist.id}/edit/add", method: :post do |form| %>
+
+      <div class="widget mb-3 rounded-5">
+
+        <div class="row">
+
+          <div class="col">
+            <%= form.label :song_name_1, "Song", style: "display: block", class: "form-label" %>
+            <%= form.text_field :song_name_1, class: "query mb-3 col-10 rounded-5" %> <br>
+
+            <%= form.label :song_name_2, class: "hidden" %>
+            <%= form.text_field :song_name_2, class: "query mb-3 col-10 rounded-5" %> <br>
+
+            <%= form.label :song_name_3, class: "hidden" %>
+            <%= form.text_field :song_name_3, class: "query mb-3 col-10 rounded-5" %> <br>
+
+            <%= form.label :song_name_4, class: "hidden" %>
+            <%= form.text_field :song_name_4, class: "query mb-3 col-10 rounded-5" %> <br>
+
+            <%= form.label :song_name_5, class: "hidden" %>
+            <%= form.text_field :song_name_5, class: "query col-10 rounded-5" %> <br>
+          </div>
+
+          <div class="col">
+            <%= form.label :artist_1, "Artist", style: "display: block", class: "form-label" %>
+            <%= form.text_field :artist_1, class: "query mb-3 col-10 rounded-5" %> <br>
+
+            <%= form.label :artist_2, class: "hidden" %>
+            <%= form.text_field :artist_2, class: "query mb-3 col-10 rounded-5" %> <br>
+
+            <%= form.label :artist_3, class: "hidden" %>
+            <%= form.text_field :artist_3, class: "query mb-3 col-10 rounded-5" %> <br>
+
+            <%= form.label :artist_4, class: "hidden" %>
+            <%= form.text_field :artist_4, class: "query mb-3 col-10 rounded-5" %> <br>
+
+            <%= form.label :artist_5, class: "hidden" %>
+            <%= form.text_field :artist_5, class: "query mb-3 col-10 rounded-5" %> <br>
+          </div>
+
+        </div>
+
+        <div class="row">
+          <div class="col-11 d-flex justify-content-end">
+              <%= form.submit "Add Songs", {class: "button p-2 px-3 rounded-5"} %>
+          </div>
+        </div>
+
+        <% end %>
+      </div>
+
+      <div class="widget rounded-5">
+        <%= render 'song', songs: @songs %>
+      </div>
+
+    </div>
+
+    <div class="col m-3">
+
+      <div class="row"> 
+        <div class="mb-4 d-flex justify-content-end"> <a href="/"><%= image_tag("sharerify.png", :alt => "Sharerify", class: "logo-small") %> </a></div>
+      </div>
+
+      <%= form_with model: @playlist, url: "/playlists/#{@playlist.id}/edit", method: :post do |form| %>
+
+        <div class="row">
+
+          <div class="col me-3 widget rounded-5">
+            <%= form.label :playlist_name, "Playlist Name", style: "display: block", class: "form-label" %>
+            <%= form.text_field :playlist_name, :value => @playlist.playlist_name, class: "query col-12 rounded-5" %>
+          </div>
+
+          <div class="col me-3 widget rounded-5">
+            <%= form.label :playlist_link, "Spotify Link", style: "display: block", class: "form-label" %>
+            <%= form.text_field :playlist_link, :value => @playlist.playlist_link, class: "query col-12 rounded-5" %>
+          </div>
+
+        </div>
+
+      <div class="row">
+
+        <div class="col me-3 mt-3 mb-3 widget rounded-5">
+          <div class="form-label">Category</div>
+          <%= render 'category', form: form, playlist: @playlist, category: "Alternative" %>
+          <%= render 'category', form: form, playlist: @playlist, category: "Blues" %>
+          <%= render 'category', form: form, playlist: @playlist, category: "Classical" %>
+          <%= render 'category', form: form, playlist: @playlist, category: "Country" %>
+          <%= render 'category', form: form, playlist: @playlist, category: "EDM" %>
+          <%= render 'category', form: form, playlist: @playlist, category: "Hip-Hop" %>
+          <%= render 'category', form: form, playlist: @playlist, category: "Jazz" %>
+          <%= render 'category', form: form, playlist: @playlist, category: "Kpop" %>
+          <%= render 'category', form: form, playlist: @playlist, category: "Latin" %>
+          <%= render 'category', form: form, playlist: @playlist, category: "Pop" %>
+          <%= render 'category', form: form, playlist: @playlist, category: "R&B" %>
+          <%= render 'category', form: form, playlist: @playlist, category: "Rock" %>
+        </div>
+
+      </div>
+
+      <div class="row">
+        <div class="mt-5 d-flex justify-content-end">
+          <%= form.submit "Publish Changes", {class: "button rounded-5"} %>
+        </div>
+      </div>
+
+      <% end %>
+
+    </div>
+
   </div>
 
-  <div>
-    <%= form.label :artist, style: "display: block" %>
-    <%= form.text_area :artist %>
-  </div>
-
-  <div>
-    <%= form.submit "Add Songs"%>
-  </div>
-<% end %>
-
-<%= form_with model: @theplaylist, url: "/playlists/#{@theplaylist.id}/edit", method: :post do |form| %>
-  <div>
-    <%= form.label :playlist_name, style: "display: block" %>
-    <%= form.text_area :playlist_name, :value => @theplaylist.playlist_name  %>
-  </div>
-
-  <div>
-    <%= form.label :playlist_link, style: "display: block" %>
-    <%= form.text_area :playlist_link, :value => @theplaylist.playlist_link %>
-  </div>
-
-  <div>
-    <%= form.submit "Publish Changes"%>
-  </div>
-<% end %>
+</div>
