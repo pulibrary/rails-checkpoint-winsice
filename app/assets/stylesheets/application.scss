@@ -40,6 +40,7 @@ table {
     overflow-y: auto;
 }
 
+
 .table {
     --bs-table-bg: #191414;
     --bs-table-color: white;
@@ -114,8 +115,19 @@ input[type='radio'] {
     display: none;
 }
 
+
+.playlist-table-body {
+    width: 100%;
+    display: table;
+}
+
 .song-table-head {
     width: 105%;
+    display: table;
+}
+
+.mysong-table-head {
+    width: 100%;
     display: table;
 }
 
@@ -127,7 +139,6 @@ input[type='radio'] {
 .song-td {
     width: 50%
 }
-
 
 .notice {
     color: red;

@@ -1,18 +1,17 @@
 <table class="table table-borderless">
 
-  <thead>
+  <tbody class="playlist-table-body">
+
     <tr>
       <th scope="col">Playlist Name</th>
       <th scope="col">Username</th>
-      <th scope="col"># of Clicks</th>
+      <th class="text-center" scope="col"># of Clicks</th>
       <th scope="col">Category</th>
     </tr>
-  </thead>
 
-  <tbody>
     <% playlists.each do |playlist| %>
       <tr>
-        <th scope="row"> <a href="/playlists/<%= playlist.id %>/info"> <%= playlist.playlist_name %> </a> </th>
+        <th class="playlist-th" scope="row"> <a href="/playlists/<%= playlist.id %>/info"> <%= playlist.playlist_name %> </a> </th>
 
         <td>
           <%= Account.find(playlist.account_id).username %>

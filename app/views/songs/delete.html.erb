@@ -1,0 +1,29 @@
+<div class="container m-4">
+  <%= image_tag("sharerify.png", :alt => "Sharerify", class: "logo-small") %>
+</div>
+
+<div class="container col-9 widget pt-5 text-center rounded-5">
+
+  <div class="row">
+    <div class="montserrat-h2 pb-4">Are you sure you want to delete the following?</div>
+    <div class="montserrat-h1"> <%= @song.song_name %> </div>
+    <div class="montserrat-h2 mb-4"> By: <%= @song.artist %> </div>
+  </div>
+
+  <div class="row justify-content-center">
+
+    <div class="col-2">
+      <%= form_with model: @song, url: "/playlists/#{@song.playlist_id}/edit", method: :get do |form| %>
+        <%= form.submit "Back", {class: "button px-5 rounded-5"} %>
+      <% end %>
+    </div>
+
+    <div class="col-2">
+      <%= form_with model: @song, url: "/songs/#{@song.id}/delete", method: :post do |form| %>
+          <%= form.submit "Confirm", {class: "button px-5 rounded-5"} %>
+      <% end %>
+    </div>
+    
+  </div>
+
+</div>

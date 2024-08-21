@@ -1,5 +1,5 @@
 class PlaylistsController < ApplicationController
-  before_action :set_playlist, only: %i[ edit update info add_song add_click delete]
+  before_action :set_playlist, only: %i[ edit update info add_song add_click delete ]
 
   def add_click
     @playlist.amount_of_listens += 1

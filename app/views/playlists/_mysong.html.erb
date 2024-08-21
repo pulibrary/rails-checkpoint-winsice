@@ -1,0 +1,21 @@
+<table class="table">
+
+  <thead class="montserrat-song mysong-table-head">
+    <tr>
+      <th scope="col">Song</th>
+      <th scope="col">Artist</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+
+  <tbody class="song-table-body">
+    <% @songs.each do |song| %>
+      <tr>
+        <td class="song-td"> <%= song.song_name %> </td>
+        <td class="song-td"> <%= song.artist %> </td>
+        <td class="song-td"> <%= link_to "Delete", "/songs/#{song.id}/delete", {class: "button p-2 rounded-5"} %> </td>
+      </tr>
+    <% end %>
+  </tbody>
+
+</table>

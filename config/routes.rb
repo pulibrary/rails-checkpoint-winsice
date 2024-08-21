@@ -53,9 +53,12 @@ Rails.application.routes.draw do
 
   # SONGS
 
+  get '/songs/:id/delete', to: 'songs#delete'
+  post '/songs/:id/delete', to: 'songs#destroy'
+
   # resources :accounts
   # resources :playlists
-  resources :songs
+  # resources :songs
 
 
 end

@@ -1,5 +1,5 @@
 class SongsController < ApplicationController
-  before_action :set_song, only: %i[ show edit update destroy ]
+  before_action :set_song, only: %i[ show edit update delete destroy ]
 
   def add_song
   end 
@@ -41,14 +41,15 @@ class SongsController < ApplicationController
     end
   end
 
+  def delete 
+    
+  end 
+
   # DELETE /songs/1 or /songs/1.json
   def destroy
-    @song.destroy!
-
-    respond_to do |format|
-      format.html { redirect_to songs_url, notice: "Song was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    playlist_id = @song.playlist_id
+    Song.delete(params[:id])
+    redirect_to "/playlists/#{playlist_id}/edit"
   end
 
   private
