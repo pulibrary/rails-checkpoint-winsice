@@ -4,8 +4,8 @@
        <a href="/"><%= image_tag("sharerify.png", :alt => "Sharerify", class: "logo-small") %></a>
     </div>
     <div class="col d-flex justify-content-end">
-      <% if current_account %>  
-        <div class="montserrat-h1 mt-4"> Welcome, <%= current_account.username %> </div>
+      <% if @current_account %>  
+        <div class="montserrat-h1 mt-4"> Welcome, <%= @current_account.username %> </div>
       <% end %>
     </div>
   </div>

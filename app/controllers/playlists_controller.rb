@@ -1,15 +1,9 @@
 class PlaylistsController < ApplicationController
   before_action :set_playlist, only: %i[ edit update info add_song add_click delete ]
-
-  def add_click
-    @playlist.amount_of_listens += 1
-    @playlist.save
-
-    redirect_to "#{@playlist.playlist_link}", allow_other_host: true
-  end
  
   # GET /
   def index
+    current_account
   end
 
   # GET /playlists/discover
@@ -118,7 +112,6 @@ class PlaylistsController < ApplicationController
   # GET /playlists/:id/info
   def info
     @username = Account.find(@playlist.account_id).username
-    puts "CATEGORIES #{@playlist.category}"
     @categories = @playlist.category
     @songs = Song.where("playlist_id = ?", @playlist.id)
   end
@@ -127,10 +120,16 @@ class PlaylistsController < ApplicationController
     
   end 
 
-  # DELETE /playlists/1 or /playlists/1.json
+  # POST /playlists/1 or /playlists/1.json
   def destroy
     Playlist.delete(params[:id])
     redirect_to '/account'
+  end
+
+  # POST 
+  def add_click
+    @playlist.update(amount_of_listens: @playlist.amount_of_listens + 1)
+    redirect_to "#{@playlist.playlist_link}", allow_other_host: true
   end
 
 
@@ -149,4 +148,9 @@ class PlaylistsController < ApplicationController
       params.require(:song).permit(:song_name_1, :song_name_2, :song_name_3, :song_name_4, :song_name_5,
                                    :artist_1,:artist_2, :artist_3, :artist_4, :artist_5)
     end
+
+    def current_account
+      @current_account ||= Account.where(id: session[:account_id]).first
+    end
+
 end

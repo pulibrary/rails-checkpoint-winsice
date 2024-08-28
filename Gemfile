@@ -41,6 +41,7 @@ group :test do
   gem 'axe-core-rspec'
   gem 'brakeman'
   gem 'reek'
+  gem 'factory_bot_rails'
 end
 
 group :development, :test do

@@ -4,13 +4,13 @@
        <a href="/"><%= image_tag("sharerify.png", :alt => "Sharerify", class: "logo-small") %></a>
     </div>
     <div class="col d-flex justify-content-end">
-      <% if current_account %>  
-        <div class="montserrat-h2 mt-4">  <%= current_account.username %>'s Playlists </div>
+      <% if @current_account %>  
+        <div class="montserrat-h2 mt-4">  <%= @current_account.username %>'s Playlists </div>
       <% end %>
     </div>
   </div>
 </div>
 
 <div class="container">
-  <%= render 'myquery', playlist: @playlist, post_url: @post_url, playlists: @playlists %>
+  <%= render 'myquery', playlist: @playlist, post_url: @post_url, playlists: @playlists %> 
 </div>

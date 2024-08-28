@@ -1,5 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Song, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "attributes relevant to Song" do 
+    it {is_expected.to respond_to :playlist_id}
+    it {is_expected.to respond_to :song_name}
+    it {is_expected.to respond_to :artist}
+  end 
 end
