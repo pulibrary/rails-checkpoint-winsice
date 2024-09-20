@@ -2,9 +2,8 @@ require 'rails_helper'
 
 RSpec.describe "playlists/search", type: :view do
 
-  it "renders the search playlist search form" do
+  it "renders the search playlist search form for user's accounts" do
 
-    assign(:post_url, playlists_search_path)
     assign(:playlists, Playlist.all)
 
     render
@@ -18,7 +17,7 @@ RSpec.describe "playlists/search", type: :view do
 
       assert_select "input[name=?]", "amount_of_listens"
       assert_select "input[name=?]", "category[]"
-
+      
       assert_select "input[type=?]", "submit"
       
     end

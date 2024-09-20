@@ -1,26 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe "playlists/delete", type: :view do
-  before(:each) do
-    assign(:account, Account.create!(
-      id: 1,
-      username: "MyText",
-      password: "MyText"
-    ))
-    assign(:playlist, Playlist.create!(
-      id: 1,
-      playlist_name: "MyText",
-      account_id: 1
-    ))
-    assign(:song, Song.new(
-      playlist_id: 1,
-      song_name: "MyText",
-      artist: "MyText"
-    ))
-  end
+
+  let(:account) { Account.first }
+  let(:playlist) { Playlist.first }
 
   it "renders the delete page buttons" do
 
+    assign(:playlist, playlist)
     render
   
     assert_select "form input", 2

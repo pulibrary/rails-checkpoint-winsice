@@ -27,7 +27,7 @@ class PlaylistsController < ApplicationController
       clicks = 0
     end 
     
-    playlist_query = Playlist.where("account_id = ?", current_account).where("playlist_name LIKE ?", playlist_name).where("amount_of_listens >= ?", clicks)
+    playlist_query = Playlist.where("account_id = ?", current_account).where("playlist_name ILIKE ?", playlist_name).where("amount_of_listens >= ?", clicks)
     playlist_query = playlist_query.select { |p| (p.category - categories).length() != p.category.length() } unless categories.nil?
 
     @playlists = playlist_query
@@ -59,7 +59,7 @@ class PlaylistsController < ApplicationController
       clicks = 0
     end 
     
-    playlist_query = Playlist.where(account_id: usernames).where("playlist_name LIKE ?", playlist_name).where("amount_of_listens >= ?", clicks)
+    playlist_query = Playlist.where(account_id: usernames).where("playlist_name ILIKE ?", playlist_name).where("amount_of_listens >= ?", clicks)
 
     playlist_query = playlist_query.select { |p| (p.category - categories).length() != p.category.length() } unless categories.nil?
 

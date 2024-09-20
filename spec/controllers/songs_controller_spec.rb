@@ -7,7 +7,7 @@ end
 
 RSpec.describe SongsController, type: :controller do
 
-  let(:song) { FactoryBot.create(:song) }
+  let(:song) { Song.first }
 
   describe "GET #delete" do 
     it "returns a successful response" do 
